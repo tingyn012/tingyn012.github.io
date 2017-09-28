@@ -246,11 +246,12 @@ limitations under the License.
         printButton.addEventListener('click', function () {
           progress.hidden = false;
           if (printCharacteristic == null) {
-            navigator.bluetooth.requestDevice({
-              filters: [{
-                namePrefix: 'P';
-              }]
-            })
+            let options = {};
+            options.acceptAllDevices = true;
+
+            log('Requesting Bluetooth Device...');
+            log('with ' + JSON.stringify(options));
+            navigator.bluetooth.requestDevice(options)
             .then(device => {
               console.log('> Found ' + device.name);
               console.log('Connecting to GATT Server...');
