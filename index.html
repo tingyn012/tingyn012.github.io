@@ -247,7 +247,9 @@ limitations under the License.
           progress.hidden = false;
           if (printCharacteristic == null) {
             navigator.bluetooth.requestDevice({
-              filters: []
+              filters: [{
+                namePrefix: 'P';
+              }]
             })
             .then(device => {
               console.log('> Found ' + device.name);
