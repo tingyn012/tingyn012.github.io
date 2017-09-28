@@ -249,8 +249,8 @@ limitations under the License.
             let options = {};
             options.acceptAllDevices = true;
 
-            log('Requesting Bluetooth Device...');
-            log('with ' + JSON.stringify(options));
+            console.log('Requesting Bluetooth Device...');
+            console.log('with ' + JSON.stringify(options));
             navigator.bluetooth.requestDevice(options)
             .then(device => {
               console.log('> Found ' + device.name);
